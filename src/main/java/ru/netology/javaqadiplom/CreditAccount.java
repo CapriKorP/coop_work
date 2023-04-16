@@ -80,7 +80,7 @@ public class CreditAccount extends Account {
         if (amount <= 0) {
             return false;
         }
-        balance = amount; //+=
+        balance += amount; //+=
         return true;
     }
 
@@ -95,10 +95,10 @@ public class CreditAccount extends Account {
      */
     @Override
     public int yearChange() {
-        if (balance >= 0) {
+        if (balance >= 0) { //если баланс больше 0, то написления 0 - верно
             return 0;
         } else {
-            return - (balance * rate) / 100;
+            return (balance * rate) / 100; //в этом случае будет что -(-balance*rate)/100, дает плюс
         }
     }
         public int getCreditLimit() {
