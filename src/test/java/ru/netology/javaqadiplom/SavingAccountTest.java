@@ -207,7 +207,7 @@ public class SavingAccountTest {
     }
 
     @Test
-    public void shouldPayMoreThanMaxBalance() { //оплата на сумму больше, чем макс баланс
+    public void shouldPayMoreThanMaxBalance() { //оплата на сумму больше, чем мин баланс
         SavingAccount account = new SavingAccount(
                 2_000,
                 1_000,
