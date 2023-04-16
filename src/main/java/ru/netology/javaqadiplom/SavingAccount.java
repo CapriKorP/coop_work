@@ -24,6 +24,7 @@ public class SavingAccount extends Account {
             throw new IllegalArgumentException(
               "Накопительная ставка не может быть отрицательной, а у вас: " + rate
             );
+            //прописано только 1 условие, а не 4 для каждого параметра
         }
         this.balance = initialBalance;
         this.minBalance = minBalance;
@@ -46,7 +47,7 @@ public class SavingAccount extends Account {
             return false;
         }
         balance = balance - amount;
-        if (balance > minBalance) {
+        if (balance > minBalance) {  //>=
             return true;
         } else {
             return false;
@@ -70,7 +71,7 @@ public class SavingAccount extends Account {
             return false;
         }
         if (balance + amount < maxBalance) {
-            balance = amount;
+            balance = amount; //!!здесь баланс не может быть равен сумме поступлений balance +=amount
             return true;
         } else {
             return false;
