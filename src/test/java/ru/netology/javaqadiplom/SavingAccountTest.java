@@ -380,6 +380,7 @@ public class SavingAccountTest {
         );
         Assertions.assertEquals(0, account.getMinBalance());
     }
+
     @Test
     public void initialBalanceEqualMaxBalance() { //Текущий баланс равен максимальному
         SavingAccount account = new SavingAccount(
@@ -390,4 +391,29 @@ public class SavingAccountTest {
         );
         Assertions.assertEquals(10_000, account.getMaxBalance());
     }
+
+    @Test
+    public void negativeRateTestMinBalance() { //Текущий баланс не может быть меньше минимального баланса
+        IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            SavingAccount account = new SavingAccount(
+                    500,
+                    1_000,
+                    10_000,
+                    5
+            );
+        });
+    }
+
+    @Test
+    public void negativeRateTestMaxBalance() { //Текущий баланс не может быть больше макс баланса
+        IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            SavingAccount account = new SavingAccount(
+                    20_000,
+                    1_000,
+                    10_000,
+                    5
+            );
+        });
+    }
+
 }
