@@ -45,6 +45,16 @@ public class SavingAccount extends Account {
                     "Минимальный баланс не может быть больше максимального. Минимальный баланс:" + minBalance + ". Максимальный баланс:" + maxBalance
             );
         }
+        if (initialBalance < minBalance) {
+            throw new IllegalArgumentException(
+                    "Начальный баланс не может быть меньше минимального. Минимальный баланс:" + minBalance + ". Начальный баланс:" + initialBalance
+            );
+        }
+        if (initialBalance > maxBalance) {
+            throw new IllegalArgumentException(
+                    "Начальный баланс не может быть больше максимального. Максимальный баланс:" + maxBalance + ". Начальный баланс:" + initialBalance
+            );
+        }
         this.balance = initialBalance;
         this.minBalance = minBalance;
         this.maxBalance = maxBalance;
@@ -67,6 +77,7 @@ public class SavingAccount extends Account {
         }
         balance = balance - amount;
         if (balance >= minBalance) {
+            balance -=amount;
             return true;
         } else {
             balance = balance + amount;
@@ -90,7 +101,7 @@ public class SavingAccount extends Account {
         if (amount <= 0) {
             return false;
         }
-        if (balance + amount < maxBalance) {
+        if (balance + amount <= maxBalance) {
             balance = balance + amount;
             return true;
         } else {
