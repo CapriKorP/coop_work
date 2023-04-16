@@ -93,8 +93,6 @@ public class SavingAccount extends Account {
      * завершиться вернув false и ничего не поменяв на счёте.
      * @param amount - сумма пополнения
      * @return true если операция прошла успешно, false иначе.
-     * @param amount
-     * @return
      */
     @Override
     public boolean add(int amount) {
@@ -114,7 +112,6 @@ public class SavingAccount extends Account {
      * счёт не будет меняться год. Сумма процентов приводится к целому
      * числу через отбрасывание дробной части (так и работает целочисленное деление).
      * Пример: если на счёте 200 рублей, то при ставке 15% ответ должен быть 30.
-     * @return
      */
     @Override
     public int yearChange() {
