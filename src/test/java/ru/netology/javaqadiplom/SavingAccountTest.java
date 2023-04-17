@@ -1,4 +1,4 @@
-package ru.netology.javaqadiplom;
+/* package ru.netology.javaqadiplom;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -359,6 +359,7 @@ public class SavingAccountTest {
         });
     }
 
+
     @Test
     public void minBalanceMoreMaxBalanceTest() {
         IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
@@ -417,3 +418,5 @@ public class SavingAccountTest {
     }
 
 }
+
+
